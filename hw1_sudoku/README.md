@@ -3,7 +3,7 @@
 
 # Question 1 (Naked Twins)
 Q: How do we use constraint propagation to solve the naked twins problem? <br />
-As illustrated in the following picture, naked twins problem is about using "naked twin squares" (e.g. the two boxes containing 23 highlighted in orange in the following picture) to exclude possibilities in other boxes. In this regard, constraint propagation solves the naked twins problem by "repeatedly" eliminating impossible values of each box according to its peers (row, column and its corresponding square). 
+As illustrated in the following picture, naked twins problem is about using "naked twin squares" (e.g. the two boxes containing 23 highlighted in orange in the following picture) to exclude possibilities in other boxes. In this regard, constraint propagation solves the naked twins problem by "repeatedly" eliminating values in naked twins squares for each peer boxes (row, column and its corresponding square). 
 <br /><br />
 <img src='images/naked_twins_board.png'>
 
