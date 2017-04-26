@@ -1,5 +1,5 @@
 # 1. Naked Twins Function
-#    To begin with, the scripts established in the class can alreadu solve a sudoku problem.
+#    To begin with, the scripts established in the class can already solve a sudoku problem.
 #    The naked twins function "naked_twins" will help solve the sudoku problem faster though.
 #
 # 2. Diagonal Sudoku Problem
