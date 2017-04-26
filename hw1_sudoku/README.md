@@ -2,12 +2,13 @@
 ## Introductory Project: Diagonal Sudoku Solver
 
 # Question 1 (Naked Twins)
-Q: How do we use constraint propagation to solve the naked twins problem?
-As illustrated in the following picture, naked twins problem is about using "naked twin squares" (e.g. the two boxes containing 23 highlighted in orange in the following picture) to exclude possibilities in other boxes. In this regard, constraint propagation solves the naked twins problem by "repeatedly" eliminating impossible values of each box according to its peers (row, column and its corresponding square).
+Q: How do we use constraint propagation to solve the naked twins problem? <br />
+As illustrated in the following picture, naked twins problem is about using "naked twin squares" (e.g. the two boxes containing 23 highlighted in orange in the following picture) to exclude possibilities in other boxes. In this regard, constraint propagation solves the naked twins problem by "repeatedly" eliminating impossible values of each box according to its peers (row, column and its corresponding square). 
+<br /><br />
 <img src='images/naked_twins_board.png'>
 
 # Question 2 (Diagonal Sudoku)
-Q: How do we use constraint propagation to solve the diagonal sudoku problem?  
+Q: How do we use constraint propagation to solve the diagonal sudoku problem?  <br />
 The diagonal sudoku problem is just a variant of the above problem if we add the diagonal units as the peer of each other.
 
 ### Install
