@@ -1,40 +1,41 @@
-# 1. Naked Twins Function
-#    To begin with, the scripts established in the class can already solve a sudoku problem.
-#    The naked twins function "naked_twins" will help solve the sudoku problem faster though.
+### Explanation
+#   1. Naked Twins Function
+#      To begin with, the scripts established in the class can already solve a sudoku problem.
+#      The naked twins function "naked_twins" will help solve the sudoku problem faster though.
 #
-# 2. Diagonal Sudoku Problem
-#    Just add the diagonal units as peer of each other.
+#   2. Diagonal Sudoku Problem
+#      Just add the diagonal units as peer of each other.
 
-assignments = []
-
+### Variable initialization
+# The following function is required for initializing other variables.
+# So it has to be placed before variable initialization.
 def cross(a, b):
     "Cross product of elements in A and elements in B."
     return [s + t for s in a for t in b]
 
+assignments = []
 rows = 'ABCDEFGHI'
 cols = '123456789'
 boxes = cross(rows, cols)
-
 row_units = [cross(r, cols) for r in rows]
 column_units = [cross(rows, c) for c in cols]
 square_units = [cross(rs, cs) for rs in ('ABC','DEF','GHI') for cs in ('123','456','789')]
-
 # Hard coding the diagonal units, not cool
 # diagonal_units = [['A1', 'B2', 'C3', 'D4', 'E5', 'F6', 'G7', 'H8', 'I9'],
 #                   ['A9', 'B8', 'C7', 'D6', 'E5', 'F4', 'G3', 'H2', 'I1']]
 # Soft coding the diagonal units
 diagonal_units = [[rows[i] + cols[i] for i in range(9)], [rows[::-1][i] + cols[i] for i in range(9)]]
-
+# Diagnonal sudoku problem implemented by adding diagonal_units in the following line
 unitlist = row_units + column_units + square_units + diagonal_units
 units = dict((s, [u for u in unitlist if s in u]) for s in boxes)
 peers = dict((s, set(sum(units[s],[]))-set([s])) for s in boxes)
 
+### Updating the variable "values" according to the "box" and "value" provided
 def assign_value(values, box, value):
     """
     Please use this function to update your values dictionary!
     Assigns a value to a given box. If it updates the board record it.
     """
-
     # Don't waste memory appending actions that don't actually change any values
     if values[box] == value:
         return values
@@ -44,6 +45,7 @@ def assign_value(values, box, value):
         assignments.append(values.copy())
     return values
 
+### Function implementing the naked twins update strategy
 def naked_twins(values):
     """Eliminate values using the naked twins strategy.
     Args:
@@ -53,7 +55,6 @@ def naked_twins(values):
         the values dictionary with the naked twins eliminated from peers.
     """
     # print(values)
-
     for unit in unitlist:
         values_in_each_unit = [values[box] for box in unit]
 
@@ -70,6 +71,7 @@ def naked_twins(values):
                             values = assign_value(values,box,values[box].replace(digit,''))
     return values
 
+### Converting a grid in string form to a grid in dictionary form
 def grid_values(grid):
     """
     Convert grid into a dict of {square: char} with '123456789' for empties.
@@ -90,6 +92,7 @@ def grid_values(grid):
     assert len(values) == 81
     return dict(zip(boxes, values))
 
+### A utility function of printing the sudoku for visualization
 def display(values):
     """
     Display the values as a 2-D grid.
@@ -106,6 +109,7 @@ def display(values):
             if r in 'CF': print(line)
         print
 
+### Main function of eliminiating impossible candidate (or digits) in each box
 def eliminate(values):
     solved_values = [box for box in values.keys() if len(values[box]) == 1]
     for box in solved_values:
@@ -114,12 +118,10 @@ def eliminate(values):
             values[peer] = values[peer].replace(digit, '')
     return values
 
-
+### Implementing only choice strategy, where only one candidate is allowed in that particular box
 def only_choice(values):
     for unit in unitlist:
-
         digit_occurrence = {}  # record occurrence of each digit in the unit
-
         for digit in '123456789':
             for box in unit:
                 if digit in values[box]:
@@ -127,16 +129,14 @@ def only_choice(values):
                         digit_occurrence[digit] += 1
                     else:
                         digit_occurrence[digit] = 1
-
         for digit in digit_occurrence:
             if digit_occurrence[digit] == 1:
                 for box in unit:
                     if digit in values[box]:
                         assign_value(values, box, digit)
-
     return values
 
-
+### The main function of implementing propagation of different kinds of constraints
 def reduce_puzzle(values):
     stalled = False
     while not stalled:
@@ -160,7 +160,10 @@ def reduce_puzzle(values):
             return False
     return values
 
-
+### Implementing the search strategy by creating a tree of possibilities,
+#   travsering (i.e. going through) it using DFS until a solution is found.
+#   Each node in the tree is splitted according to the possible values of
+#   a particular box.
 def search(values):
     "Using depth-first search and propagation, try all possible values."
     # First, reduce the puzzle using the previous function
@@ -179,7 +182,7 @@ def search(values):
         if attempt:
             return attempt
 
-
+### Main function of initializing the solving of a sudoku from main
 def solve(grid):
     """
     Find the solution to a Sudoku grid.
