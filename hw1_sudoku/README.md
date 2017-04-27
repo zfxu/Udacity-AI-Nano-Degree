@@ -2,14 +2,23 @@
 ## Introductory Project: Diagonal Sudoku Solver
 
 # Question 1 (Naked Twins)
-Q: How do we use constraint propagation to solve the naked twins problem? <br />
-As illustrated in the following picture, naked twins problem is about using "naked twin squares" (e.g. the two boxes containing 23 highlighted in orange in the following picture) to exclude possibilities in other boxes. In this regard, constraint propagation solves the naked twins problem by "repeatedly" eliminating values in naked twins squares for each peer boxes (row, column and its corresponding square). 
-<br /><br />
+Q: How do we use constraint propagation to solve the naked twins problem?
+Constraint propagation is to repeatedly propagate constraints over the search space in order to
+exclude forbidding values or combinations of values for some variables of a problem. In this
+regard, "Naked Twins" is a search strategy in constraint propagation. In
+ the following picture, "naked twin squares" are the two boxes containing "23" highlighted in
+ orange. Since the values "23" in the two boxes cannot appear in their peers, these two values,
+ if appear in their peers (row, column and its corresponding square), can be eliminated. In that
+ case, the search space is simplified and can fasten the solving process.
 <img src='images/naked_twins_board.png'>
 
 # Question 2 (Diagonal Sudoku)
-Q: How do we use constraint propagation to solve the diagonal sudoku problem?  <br />
-The diagonal sudoku problem is just a variant of the above problem if we add the diagonal units as the peer of each other.
+Q: How do we use constraint propagation to solve the diagonal sudoku problem?  
+To solve the diagonal sudoku problem, we can again take advantage of constraint propagation by
+implementing the uniqueness of diagonal values as a constraint, similar to the "Naked Twins"
+strategy. In general, the diagonal sudoku problem is just a variant of the above problem if we add
+the diagonal units as the peer of each other. And doing so does not require tremendous
+modificaiton of the code.
 
 ### Install
 
