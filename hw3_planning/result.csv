@@ -1,0 +1,24 @@
+Air Cargo Problem 1, breadth_first_search,     43          56         180    ,6,0.0563260521
+Air Cargo Problem 1, breadth_first_tree_search,    1458        1459        5960   ,6,0.961690387
+Air Cargo Problem 1, depth_first_graph_search,     12          13          48    ,12,0.0068993
+Air Cargo Problem 1, depth_limited_search,    101         271         414    ,50,0.0753250141
+Air Cargo Problem 1, uniform_cost_search,     55          57         224    ,6,0.03130798
+Air Cargo Problem 1, recursive_best_first_search with h_1,    4229        4230       17029   ,6,2.3764540229
+Air Cargo Problem 1, greedy_best_first_graph_search with h_1,     7           9           28    ,6,0.0042530911
+Air Cargo Problem 1, astar_search with h_1,     55          57         224    ,6,0.031540109
+Air Cargo Problem 1, astar_search with h_ignore_preconditions,     41          43         170    ,6,0.0318525679
+Air Cargo Problem 1, astar_search with h_pg_levelsum,     11          13          50    ,6,1.560379678
+Air Cargo Problem 2, breadth_first_search,    3346        4612       30534   ,9,11.638329178
+Air Cargo Problem 2, depth_first_graph_search,    1124        1125       10017   ,1085,6.6056141959
+Air Cargo Problem 2, depth_limited_search,   213491     1967093     1967471  ,50,747.522506163
+Air Cargo Problem 2, uniform_cost_search,    4853        4855       44041   ,9,10.1380150961
+Air Cargo Problem 2, greedy_best_first_graph_search with h_1,    998         1000        8982   ,21,2.099474162
+Air Cargo Problem 2, astar_search with h_1,    4853        4855       44041   ,9,10.145268657
+Air Cargo Problem 2, astar_search with h_ignore_preconditions,    1450        1452       13303   ,9,3.668406722
+Air Cargo Problem 2, astar_search with h_pg_levelsum,     86          88         841    ,9,248.3533969959
+Air Cargo Problem 3, breadth_first_search,   14120       17673       124926  ,12,81.4867424549
+Air Cargo Problem 3, depth_first_graph_search,    677         678         5608   ,660,3.043231476
+Air Cargo Problem 3, uniform_cost_search,   18235       18237       159716  ,12,44.6759405
+Air Cargo Problem 3, greedy_best_first_graph_search with h_1,    5614        5616       49429   ,22,13.837041285
+Air Cargo Problem 3, astar_search with h_1,   18235       18237       159716  ,12,44.874296434
+Air Cargo Problem 3, astar_search with h_ignore_preconditions,    5040        5042       44944   ,12,14.288181702
